@@ -1,31 +1,8 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Nov 11, 2025 at 03:29 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `tjsims_db`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `app_settings`
---
 
 CREATE TABLE `app_settings` (
   `id` int(11) NOT NULL,
@@ -44,10 +21,7 @@ CREATE TABLE `app_settings` (
 --
 
 INSERT INTO `app_settings` (`id`, `store_name`, `address`, `contact_number`, `email`, `cash_enabled`, `gcash_enabled`, `cod_enabled`, `updated_at`) VALUES
-(1, 'Your Store', 'Address', '09123456789', 'store@example.com', 1, 1, 0, '2025-10-20 17:07:48');
-
--- --------------------------------------------------------
-
+(1, 'Your Store', 'Address', '09123456789', 'store@example.com', 1, 1, 0, '2025-10-20 17:07:48'
 --
 -- Table structure for table `brands`
 --
