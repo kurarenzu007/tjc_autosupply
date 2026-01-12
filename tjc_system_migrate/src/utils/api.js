@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+import { API_BASE_URL } from './config'
 
 // Helper function to handle API responses
 const handleResponse = async (response) => {
@@ -498,18 +498,18 @@ export const activityLogsAPI = {
     if (params.limit) searchParams.append('limit', params.limit); // [FIX] Added this line
     if (params.search) searchParams.append('search', params.search);
     
-    const response = await fetch(`http://localhost:5000/api/activity-logs?${searchParams}`, { credentials: 'include' });
+    const response = await fetch(`${API_BASE_URL}/activity-logs?${searchParams}`, { credentials: 'include' });
     return response.json(); // Assuming handleResponse is internal or previously defined
   },
   
   // [NEW]
   getStats: async () => {
-    const response = await fetch(`http://localhost:5000/api/activity-logs/stats`, { credentials: 'include' });
+    const response = await fetch(`${API_BASE_URL}/activity-logs/stats`, { credentials: 'include' });
     return response.json();
   },
   // [NEW]
   prune: async (retentionDays, username) => {
-    const response = await fetch(`http://localhost:5000/api/activity-logs/prune`, {
+    const response = await fetch(`${API_BASE_URL}/activity-logs/prune`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ retentionDays, username }),

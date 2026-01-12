@@ -17,8 +17,7 @@ import {
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 import { authAPI } from '../../utils/api'
-
-const ASSET_URL = 'http://localhost:5000'
+import { resolveAssetUrl } from '../../utils/config'
 
 const AppHeaderDropdown = () => {
   const [avatar, setAvatar] = useState(null)
@@ -26,9 +25,9 @@ const AppHeaderDropdown = () => {
   useEffect(() => {
     const loadAvatar = () => {
        const stored = localStorage.getItem('userAvatar')
-       if (stored) {
-           setAvatar(stored.startsWith('http') ? stored : `${ASSET_URL}${stored}`)
-       }
+      if (stored) {
+        setAvatar(resolveAssetUrl(stored))
+      }
     }
     loadAvatar()
     window.addEventListener('userUpdated', loadAvatar)
