@@ -21,7 +21,10 @@ CREATE TABLE `app_settings` (
 --
 
 INSERT INTO `app_settings` (`id`, `store_name`, `address`, `contact_number`, `email`, `cash_enabled`, `gcash_enabled`, `cod_enabled`, `updated_at`) VALUES
-(1, 'Your Store', 'Address', '09123456789', 'store@example.com', 1, 1, 0, '2025-10-20 17:07:48'
+(1, 'Your Store', 'Address', '09123456789', 'store@example.com', 1, 1, 0, '2025-10-20 17:07:48');
+
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `brands`
 --
