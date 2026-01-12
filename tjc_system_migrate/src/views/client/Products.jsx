@@ -6,6 +6,7 @@ import '../../styles/Products.css';
 
 import bg from '../../assets/image-background.png';
 import noImageFound from '../../assets/no-image-branded.png';
+import { resolveAssetUrl } from '../../utils/config';
 
 const ITEMS_PER_PAGE = 20;
 
@@ -134,7 +135,7 @@ const Products = () => {
           <div className="product-detail-layout">
             <div className="modal-image-section">
               <img 
-                src={selectedProduct.image ? `http://localhost:5000${selectedProduct.image}` : noImageFound} 
+                src={selectedProduct.image ? resolveAssetUrl(selectedProduct.image) : noImageFound} 
                 alt={selectedProduct.name}
                 className="modal-product-image"
                 onError={(e) => { e.target.src = noImageFound; }} 
@@ -307,7 +308,7 @@ const Products = () => {
                   
                   <div className="card-image-wrapper">
                     <img 
-                      src={product.image ? `http://localhost:5000${product.image}` : noImageFound} 
+                      src={product.image ? resolveAssetUrl(product.image) : noImageFound} 
                       alt={product.name}
                       onError={(e) => { e.target.src = noImageFound; }} 
                     />

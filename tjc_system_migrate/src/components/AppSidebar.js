@@ -16,6 +16,7 @@ import { AppSidebarNav } from './AppSidebarNav'
 import navigation from '../_nav'
 import { useNavigate } from 'react-router-dom'
 import { authAPI } from '../utils/api'
+import { resolveAssetUrl } from '../utils/config'
 
 // Icons
 import CIcon from '@coreui/icons-react'
@@ -23,8 +24,6 @@ import { cilAccountLogout, cilUser, cilWarning } from '@coreui/icons'
 
 // Branding Assets
 import sidebarIcon from '../assets/sidebar-icon.png' 
-
-const ASSET_URL = 'http://localhost:5000'
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
@@ -47,7 +46,7 @@ const AppSidebar = () => {
        const storedRole = localStorage.getItem('role')
 
        if (storedAvatar) {
-           setAvatar(storedAvatar.startsWith('http') ? storedAvatar : `${ASSET_URL}${storedAvatar}`)
+           setAvatar(resolveAssetUrl(storedAvatar))
        }
        if (storedName) setUsername(storedName)
        if (storedRole) setRole(storedRole)
