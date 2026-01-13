@@ -11,11 +11,10 @@ import {
 import { salesAPI, inventoryAPI, customersAPI, settingsAPI } from '../../utils/api'
 import { serialNumberAPI } from '../../utils/serialNumberApi'
 import { generateSaleReceipt } from '../../utils/pdfGenerator'
+import { resolveAssetUrl } from '../../utils/config'
 
 import '../../styles/App.css'
 import '../../styles/SalesPage.css' 
-
-const ASSET_URL = 'http://localhost:5000'
 
 const SalesPage = () => {
   // --- 1. CORE STATE ---

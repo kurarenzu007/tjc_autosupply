@@ -7,13 +7,13 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilCloudUpload, cilSave, cilUser, cilPencil } from '@coreui/icons'
 import { usersAPI } from '../../utils/api'
+import { resolveAssetUrl } from '../../utils/config'
 import '../../styles/Admin.css'
 
 // [CONSISTENCY] Use the same library as ProductPage
 import ReactCrop, { centerCrop, makeAspectCrop } from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
 
-const ASSET_URL = 'http://localhost:5000'
 const CROP_ASPECT = 1; // 1:1 Aspect Ratio is required for Avatars (Square)
 
 // ==================================================================================

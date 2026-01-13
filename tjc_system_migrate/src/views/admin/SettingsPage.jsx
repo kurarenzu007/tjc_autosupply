@@ -12,6 +12,7 @@ import {
   cilUser, cilCloudUpload, cilTrash, cilHistory, cilInfo, cilXCircle
 } from '@coreui/icons'
 import { settingsAPI, usersAPI, authAPI, activityLogsAPI } from '../../utils/api'
+import { resolveAssetUrl } from '../../utils/config'
 
 import ReactCrop, { centerCrop, makeAspectCrop } from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
@@ -19,7 +20,6 @@ import '../../styles/App.css'
 import '../../styles/Admin.css'
 import '../../styles/SettingsPage.css'
 
-const ASSET_URL = 'http://localhost:5000'
 const CROP_ASPECT = 1;
 
 const ImageCropModal = ({ visible, imageSrc, onClose, onApply, loading }) => {

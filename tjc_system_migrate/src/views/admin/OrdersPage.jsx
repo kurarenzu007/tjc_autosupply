@@ -21,7 +21,7 @@ import '../../styles/App.css'
 import '../../styles/OrdersPage.css' 
 
 const ITEMS_PER_PAGE = 10;
-//const ASSET_URL = 'http://localhost:5000'; 
+//const ASSET_URL = '';
 
 // --- REUSABLE STAT CARD ---
 const StatCard = ({ title, value, icon, gradient, textColor = 'text-white' }) => (
