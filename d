@@ -1,0 +1,89 @@
+[33mcommit 1af008da1a8be5b6b728ebc1b6e458ce5c1eb718[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 14:13:55 2026 +0800
+
+    a
+
+[33mcommit adb87fa530bff2dbb31f6f77e3ff05167887f42e[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 14:02:08 2026 +0800
+
+    localhost removed
+
+[33mcommit 03028731adaade5ffac05cb4c89186cc7bf7a653[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 13:55:31 2026 +0800
+
+    db
+
+[33mcommit b2b1954c7d0e6d5798b08ec014eeef0081700bb4[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 13:43:18 2026 +0800
+
+    refactor 1.0 done
+
+[33mcommit 7254b0961568a6e366abfbbe16540570ccc6fb98[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 13:36:58 2026 +0800
+
+    refactoring
+
+[33mcommit b9bfba44a15316af13930300b3fa2fa3bb7aab4a[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 02:33:57 2026 +0800
+
+    config
+
+[33mcommit a5a9c7953014028d80b269dc3575d850a1dbedf1[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 02:30:45 2026 +0800
+
+    antok na ko
+
+[33mcommit f054a8623e338fe42235003f4dfcf98b7ad5eee9[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 02:11:21 2026 +0800
+
+    backend update
+
+[33mcommit f69e7e03c433705368a7f2db1fc948c670030a0f[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 00:57:40 2026 +0800
+
+    asd
+
+[33mcommit b96c3f7740c54b6e8da67689b6f66c18cef7958a[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 00:39:35 2026 +0800
+
+    Fix Vercel config and SQL migration
+
+[33mcommit b1df569f4a0e696a57a400606a6e0dda1e99c456[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 00:24:40 2026 +0800
+
+    tests
+
+[33mcommit 2c6c10a971ed5e22bcb142ddd17dae0844bec907[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Tue Jan 13 00:07:37 2026 +0800
+
+    Track tjc_system_migrate as regular directory
+
+[33mcommit de5f50277a01eb1307bd23c86bf0d151a64e3488[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Mon Jan 12 23:59:11 2026 +0800
+
+    haha
+
+[33mcommit 724429ded5785c91d95ce27d00a3e24c95ed30d4[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Mon Jan 12 23:57:54 2026 +0800
+
+    Remove broken submodule reference
+
+[33mcommit 48f952bb04f7cdc22554daf44517f3027de31501[m
+Author: Clarence Felicilda <clarence.felicilda@cvsu.edu.ph>
+Date:   Mon Jan 12 23:49:33 2026 +0800
+
+    commit

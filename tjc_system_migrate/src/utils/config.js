@@ -2,8 +2,8 @@ const isBrowser = typeof window !== 'undefined'
 const isProd = import.meta.env.PROD
 
 const originFallback = isBrowser ? window.location.origin : ''
-const fallbackApi = isProd && originFallback ? `${originFallback}/api` : 'http://localhost:5000/api'
-const fallbackAsset = isProd && originFallback ? originFallback : 'http://localhost:5000'
+const fallbackApi = isProd ? 'https://tjcbackend-production.up.railway.app/api' : 'http://localhost:5000/api'
+const fallbackAsset = isProd ? 'https://tjcbackend-production.up.railway.app' : 'http://localhost:5000'
 
 export const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || fallbackApi).replace(/\/$/, '')
 export const ASSET_BASE_URL = (
