@@ -4,11 +4,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const dbConfig = {
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'mysql-tjc-autosupply.alwaysdata.net',
   port: process.env.DB_PORT || 3306,
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'tjsims_db',
+  user: process.env.DB_USER || 'tjc-autosupply',
+  password: process.env.DB_PASSWORD || 'clrnc0000-',
+  database: process.env.DB_NAME || 'tjc_autosupply_tjsims_db',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
