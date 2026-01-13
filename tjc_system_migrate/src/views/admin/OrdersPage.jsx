@@ -14,13 +14,14 @@ import {
 } from '@coreui/icons'
 import { salesAPI, returnsAPI, serialNumberAPI, activityLogsAPI, authAPI, settingsAPI } from '../../utils/api'
 import { generateSaleReceipt } from '../../utils/pdfGenerator'
+import { resolveAssetUrl } from '../../utils/config'
 
 import '../../styles/Admin.css'
 import '../../styles/App.css'
 import '../../styles/OrdersPage.css' 
 
 const ITEMS_PER_PAGE = 10;
-const ASSET_URL = 'http://localhost:5000'; 
+//const ASSET_URL = 'http://localhost:5000'; 
 
 // --- REUSABLE STAT CARD ---
 const StatCard = ({ title, value, icon, gradient, textColor = 'text-white' }) => (
@@ -420,9 +421,9 @@ const OrdersPage = () => {
                                {ret.photo_proof && (
                                    <div className="mt-2 p-2 bg-light rounded border">
                                        <small className="text-muted fw-bold d-block mb-2 text-uppercase" style={{fontSize:'0.7rem'}}>Proof of Return</small>
-                                       <a href={`${ASSET_URL}${ret.photo_proof}`} target="_blank" rel="noreferrer" className="text-decoration-none">
+                                       <a href={resolveAssetUrl(ret.photo_proof)} target="_blank" rel="noreferrer" className="text-decoration-none">
                                            <div className="d-flex align-items-center gap-2">
-                                               <img src={`${ASSET_URL}${ret.photo_proof}`} alt="Return Proof" style={{height: '60px', width: '60px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #dee2e6'}} />
+                                               <img src={resolveAssetUrl(ret.photo_proof)} alt="Return Proof" style={{height: '60px', width: '60px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #dee2e6'}} />
                                                <span className="small text-primary fw-bold"><CIcon icon={cilImage} className="me-1"/> View Full Image</span>
                                            </div>
                                        </a>

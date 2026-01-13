@@ -12,12 +12,12 @@ import {
 } from '@coreui/icons'
 // [UPDATED] Added productAPI to imports
 import { inventoryAPI, serialNumberAPI, suppliersAPI, productAPI } from '../../utils/api'
+import { resolveAssetUrl } from '../../utils/config'
 
 // Import Global Brand Styles
 import '../../styles/Admin.css'
 import '../../styles/App.css' 
 
-const ASSET_URL = 'http://localhost:5000'
 const ITEMS_PER_PAGE = 10; 
 
 // --- REUSABLE STAT CARD ---
@@ -153,8 +153,7 @@ const InventoryPage = () => {
   // --- HELPERS ---
   const getProductImageUrl = (path) => {
     if (!path) return null
-    if (path.startsWith('http')) return path
-    return `${ASSET_URL}${path.startsWith('/') ? path : '/' + path}`
+    return resolveAssetUrl(path)
   }
 
   const showMessage = (title, message, color = 'info', onConfirm = null) => setMsgModal({ visible: true, title, message, color, onConfirm })

@@ -11,14 +11,13 @@ import {
 } from '@coreui/icons'
 import { productAPI } from '../../utils/api'
 import { serialNumberAPI } from '../../utils/serialNumberApi'
+import { resolveAssetUrl } from '../../utils/config'
 import ReactCrop, { centerCrop, makeAspectCrop } from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
 
 import '../../styles/Admin.css'
 import '../../styles/App.css' 
 import '../../styles/ProductPage.css'
-
-const ASSET_URL = 'http://localhost:5000'
 
 const UOM_MAP = {
     'EA': 'Each', 'SET': 'Set', 'KIT': 'Kit', 'PR': 'Pair', 'ASY': 'Assembly', 'PK': 'Pack'
@@ -113,7 +112,7 @@ const ProductFormModal = ({ visible, productToEdit, categories, brands, onClose,
         }
     }, [visible, productToEdit]);
 
-    const getImageUrl = (path) => path ? (path.startsWith('http') ? path : `${ASSET_URL}${path.startsWith('/') ? path : `/${path}`}`) : null;
+    const getImageUrl = (path) => (!path ? null : resolveAssetUrl(path));
 
     const checkSerials = async (prod) => {
         if (prod.requires_serial) {

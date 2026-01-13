@@ -95,7 +95,7 @@ const SalesPage = () => {
 
   const filteredSerials = availableSerials.filter(sn => sn.serial_number.toLowerCase().includes(serialSearchTerm.toLowerCase()))
   
-  const getProductImageUrl = (path) => (!path ? null : path.startsWith('http') ? path : `${ASSET_URL}${path.startsWith('/') ? path : '/' + path}`)
+  const getProductImageUrl = (path) => (!path ? null : resolveAssetUrl(path))
 
   // --- LIFECYCLE ---
   useEffect(() => { 

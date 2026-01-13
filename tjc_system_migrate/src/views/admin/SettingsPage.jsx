@@ -192,7 +192,7 @@ const SettingsPage = () => {
       }
   }
 
-  const getPreviewImage = () => { if (formAvatar) return URL.createObjectURL(formAvatar); if (editUser && editUser.avatar) return editUser.avatar.startsWith('http') ? editUser.avatar : `${ASSET_URL}${editUser.avatar}`; return null }
+  const getPreviewImage = () => { if (formAvatar) return URL.createObjectURL(formAvatar); if (editUser && editUser.avatar) return resolveAssetUrl(editUser.avatar); return null }
   const previewSrc = getPreviewImage()
   const filteredUsers = users.filter(u => u.username.toLowerCase().includes(userSearch.toLowerCase()) || u.first_name?.toLowerCase().includes(userSearch.toLowerCase()) || u.last_name?.toLowerCase().includes(userSearch.toLowerCase()))
 

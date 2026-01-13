@@ -41,6 +41,7 @@ import {
 import tcjLogo from '../../assets/tcj_logo.png'
 import { salesAPI } from '../../utils/api'
 import { serialNumberAPI } from '../../utils/serialNumberApi'
+import { resolveAssetUrl } from '../../utils/config'
 
 // [FIX] Global Styles
 import '../../styles/App.css'
@@ -205,7 +206,7 @@ const DeliveryPortal = () => {
           <CNavbarNav className="ms-auto d-flex flex-row align-items-center gap-3">
             <div className="d-flex align-items-center text-white gap-2">
               {riderAvatar ? (
-                <CAvatar src={riderAvatar.startsWith('http') ? riderAvatar : `http://localhost:5000${riderAvatar}`} size="sm" />
+                <CAvatar src={resolveAssetUrl(riderAvatar)} size="sm" />
               ) : (
                 <CIcon icon={cilUser} />
               )}

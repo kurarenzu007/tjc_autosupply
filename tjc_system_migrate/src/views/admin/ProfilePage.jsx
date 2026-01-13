@@ -117,7 +117,7 @@ const ProfilePage = () => {
         if (res.success) {
           setUser(res.data)
           if (res.data.avatar) {
-             setAvatarPreview(res.data.avatar.startsWith('http') ? res.data.avatar : `${ASSET_URL}${res.data.avatar}`)
+             setAvatarPreview(resolveAssetUrl(res.data.avatar))
           }
         }
       } catch (error) {
