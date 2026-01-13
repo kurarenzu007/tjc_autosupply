@@ -3,18 +3,35 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const requiredEnv = ['DB_HOST', 'DB_PORT', 'DB_USER', 'DB_PASSWORD', 'DB_NAME'];
+const missingEnv = requiredEnv.filter((key) => !process.env[key]);
+if (missingEnv.length) {
+  throw new Error(`Missing required environment variables: ${missingEnv.join(', ')}`);
+}
+
+const parseBooleanEnv = (value) => {
+  if (value == null) return false;
+  return ['1', 'true', 'yes', 'on'].includes(String(value).trim().toLowerCase());
+};
+
 const dbConfig = {
-  host: process.env.DB_HOST || 'mysql-tjc-autosupply.alwaysdata.net',
-  port: process.env.DB_PORT || 3306,
-  user: process.env.DB_USER || 'tjc-autosupply',
-  password: process.env.DB_PASSWORD || 'clrnc0000-',
-  database: process.env.DB_NAME || 'tjc_autosupply_tjsims_db',
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
   acquireTimeout: 60000,
   timeout: 60000,
 };
+
+if (parseBooleanEnv(process.env.DB_SSL)) {
+  dbConfig.ssl = {
+    rejectUnauthorized: parseBooleanEnv(process.env.DB_SSL_REJECT_UNAUTHORIZED),
+  };
+}
 
 let pool;
 
