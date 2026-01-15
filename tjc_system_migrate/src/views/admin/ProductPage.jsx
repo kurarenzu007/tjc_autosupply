@@ -11,7 +11,7 @@ import {
 } from '@coreui/icons'
 import { productAPI } from '../../utils/api'
 import { serialNumberAPI } from '../../utils/serialNumberApi'
-import { resolveAssetUrl } from '../../utils/config'
+import { ASSET_BASE_URL, resolveAssetUrl } from '../../utils/config'
 import ReactCrop, { centerCrop, makeAspectCrop } from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
 
@@ -309,7 +309,7 @@ const ProductPage = () => {
       }})
   }
 
-  const getImageUrl = (path) => path ? (path.startsWith('http') ? path : `${ASSET_URL}${path.startsWith('/') ? path : `/${path}`}`) : null;
+  const getImageUrl = (path) => path ? (path.startsWith('http') ? path : `${ASSET_BASE_URL}${path.startsWith('/') ? path : `/${path}`}`) : null;
   const totalPages = Math.ceil(total/ITEMS_PER_PAGE);
 
   // --- PAGINATION RENDERER ---
