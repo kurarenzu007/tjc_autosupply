@@ -106,7 +106,7 @@ const ProfilePage = () => {
   const [message, setMessage] = useState({ type: '', text: '' })
   
   const fileInputRef = useRef(null)
-  const userId = localStorage.getItem('userId') 
+  const userId = localStorage.getItem('userId')?.replace(/^["']|["']$/g, '') // Clean quotes if present 
 
   // 1. Fetch Data
   useEffect(() => {
@@ -150,6 +150,13 @@ const ProfilePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    // Validate userId before proceeding
+    if (!userId || userId === 'null' || userId === 'undefined') {
+      setMessage({ type: 'danger', text: 'User ID is missing. Please log in again.' })
+      return
+    }
+    
     setSubmitting(true)
     setMessage({ type: '', text: '' })
 
@@ -161,6 +168,7 @@ const ProfilePage = () => {
       formData.append('email', user.email || '')
       if (selectedFile) formData.append('avatar', selectedFile)
 
+      console.log('Updating user with ID:', userId) // Debug log
       const res = await usersAPI.update(userId, formData)
       
       if (res.success) {
@@ -170,6 +178,7 @@ const ProfilePage = () => {
         window.dispatchEvent(new Event('userUpdated'))
       }
     } catch (error) {
+      console.error('Profile update error:', error)
       setMessage({ type: 'danger', text: 'Failed to update profile.' })
     } finally {
       setSubmitting(false)
