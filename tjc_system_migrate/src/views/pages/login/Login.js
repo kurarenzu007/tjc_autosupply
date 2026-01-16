@@ -29,8 +29,13 @@ const Login = () => {
     setError('')
 
     try {
+      console.log('Attempting login with:', { email, password: '***' })
+      console.log('API URL:', `${import.meta.env.VITE_API_BASE_URL || 'https://tjcbackend-production.up.railway.app/api'}/auth/login`)
+      
       const result = await authAPI.login(email, password)
       const user = result.data
+
+      console.log('Login successful:', user)
 
       // [FIX] Changed to localStorage for persistent session access in ProfilePage
       localStorage.setItem('isAuthenticated', 'true')
@@ -50,6 +55,7 @@ const Login = () => {
         navigate('/dashboard')
       }
     } catch (err) {
+      console.error('Login error:', err)
       setError(err.message || 'Login failed. Please check your credentials.')
     } finally {
       setLoading(false)
