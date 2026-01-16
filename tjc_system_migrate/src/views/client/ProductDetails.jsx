@@ -4,7 +4,7 @@ import Navbar from '../../components/client/Navbar';
 import Footer from '../../components/client/Footer';
 import '../../styles/Products.css';
 import { productAPI } from '../../utils/api';
-import { resolveAssetUrl } from '../../utils/config';
+import { resolveAssetUrl, ASSET_BASE_URL } from '../../utils/config';
 
 const currency = (n) => `₱ ${Number(n || 0).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
@@ -88,7 +88,7 @@ const ProductDetails = () => {
               {/* Left: Image */}
               <div className="detail-image-container" style={{ background: '#fff', border: '1px solid #edf2f7', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', height: '400px' }}>
                   <img 
-                    src={product.image ? resolveAssetUrl(product.image) : 'https://placehold.co/600x450?text=No+Image'} 
+                    src={product.image ? (product.image.startsWith('http') ? product.image : `${ASSET_BASE_URL}${product.image.startsWith('/') ? product.image : '/' + product.image}`) : 'https://placehold.co/600x450?text=No+Image'} 
                     alt={product.name}
                     style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
                   />
