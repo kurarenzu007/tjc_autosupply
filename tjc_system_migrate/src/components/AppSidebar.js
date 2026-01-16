@@ -71,7 +71,7 @@ const AppSidebar = () => {
     } finally {
       localStorage.clear()
       // Force redirect to admin login
-      window.location.href = '/admin/login'
+      window.location.href = '/admin'
     }
   }
 
