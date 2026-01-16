@@ -34,7 +34,7 @@ const DeliveryPortal = React.lazy(() => import('./views/admin/DeliveryPortal'))
 
 // --- PROTECTION ---
 const ProtectedRoute = React.lazy(() => import('./components/ProtectedRoute'))
-const DebugAuth = React.lazy(() => import('./components/DebugAuth'))
+const AdminRedirect = React.lazy(() => import('./components/AdminRedirect'))
 
 // --- CLIENT PAGES (Public Website) ---
 // LandingPage is no longer needed as Products is now the Home
@@ -44,21 +44,6 @@ const OrderStatus = React.lazy(() => import('./views/client/OrderStatus'))
 const ContactUs = React.lazy(() => import('./views/client/ContactUs'))
 
 const App = () => {
-  // Clear any existing auth data when accessing /admin directly
-  const handleAdminRedirect = () => {
-    if (window.location.pathname === '/admin') {
-      localStorage.removeItem('isAuthenticated')
-      localStorage.removeItem('userRole')
-      localStorage.removeItem('userId')
-      localStorage.removeItem('username')
-      localStorage.removeItem('userAvatar')
-    }
-  }
-
-  React.useEffect(() => {
-    handleAdminRedirect()
-  }, [])
-
   return (
     <BrowserRouter>
       <Suspense fallback={loading}>
