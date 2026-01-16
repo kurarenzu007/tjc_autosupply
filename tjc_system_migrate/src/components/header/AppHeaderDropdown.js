@@ -44,7 +44,7 @@ const AppHeaderDropdown = () => {
     } finally {
       // [CRITICAL] Always run this, regardless of API success/failure
       localStorage.clear()
-      window.location.href = '/login'
+      window.location.href = '/admin/login'
     }
   }
 
