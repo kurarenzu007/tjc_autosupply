@@ -7,7 +7,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilCloudUpload, cilSave, cilUser, cilPencil } from '@coreui/icons'
 import { usersAPI } from '../../utils/api'
-import { resolveAssetUrl } from '../../utils/config'
+import { resolveAssetUrl, ASSET_BASE_URL } from '../../utils/config'
 import '../../styles/Admin.css'
 
 // [CONSISTENCY] Use the same library as ProductPage
@@ -117,7 +117,7 @@ const ProfilePage = () => {
         if (res.success) {
           setUser(res.data)
           if (res.data.avatar) {
-             setAvatarPreview(resolveAssetUrl(res.data.avatar))
+             setAvatarPreview(res.data.avatar.startsWith('http') ? res.data.avatar : `${ASSET_BASE_URL}${res.data.avatar.startsWith('/') ? res.data.avatar : '/' + res.data.avatar}`)
           }
         }
       } catch (error) {
