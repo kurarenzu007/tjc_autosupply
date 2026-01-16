@@ -69,6 +69,15 @@ const DeliveryPortal = () => {
 
   // --- EFFECTS ---
   useEffect(() => {
+    // Check authentication
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true'
+    const userRole = localStorage.getItem('userRole')
+    
+    if (!isAuthenticated || userRole !== 'driver') {
+      navigate('/admin/login')
+      return
+    }
+
     let mounted = true
     setLoading(true)
     fetchOrders()

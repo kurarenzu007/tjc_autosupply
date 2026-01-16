@@ -32,6 +32,10 @@ const Login = React.lazy(() => import('./views/pages/login/Login'))
 const Recovery = React.lazy(() => import('./views/pages/RecoveryPage'))
 const DeliveryPortal = React.lazy(() => import('./views/admin/DeliveryPortal'))
 
+// --- PROTECTION ---
+const ProtectedRoute = React.lazy(() => import('./components/ProtectedRoute'))
+const DebugAuth = React.lazy(() => import('./components/DebugAuth'))
+
 // --- CLIENT PAGES (Public Website) ---
 // LandingPage is no longer needed as Products is now the Home
 const Products = React.lazy(() => import('./views/client/Products'))
@@ -40,6 +44,21 @@ const OrderStatus = React.lazy(() => import('./views/client/OrderStatus'))
 const ContactUs = React.lazy(() => import('./views/client/ContactUs'))
 
 const App = () => {
+  // Clear any existing auth data when accessing /admin directly
+  const handleAdminRedirect = () => {
+    if (window.location.pathname === '/admin') {
+      localStorage.removeItem('isAuthenticated')
+      localStorage.removeItem('userRole')
+      localStorage.removeItem('userId')
+      localStorage.removeItem('username')
+      localStorage.removeItem('userAvatar')
+    }
+  }
+
+  React.useEffect(() => {
+    handleAdminRedirect()
+  }, [])
+
   return (
     <BrowserRouter>
       <Suspense fallback={loading}>
@@ -48,8 +67,15 @@ const App = () => {
           <Route exact path="/admin/login" element={<Login />} />
           <Route exact path="/admin/recover-password" element={<Recovery />} />
           
-          {/* --- DRIVER PORTAL (Standalone) --- */}
-          <Route exact path="/admin/delivery" element={<DeliveryPortal />} />
+          {/* --- ADMIN MAIN REDIRECT --- */}
+          <Route exact path="/admin" element={<Navigate to="/admin/login" replace />} />
+          
+          {/* --- DRIVER PORTAL (Protected) --- */}
+          <Route exact path="/admin/delivery" element={
+            <ProtectedRoute requiredRole="driver">
+              <DeliveryPortal />
+            </ProtectedRoute>
+          } />
 
           {/* --- CLIENT ROUTES (Public) --- */}
           {/* [FIX] Root "/" now loads the Products Showroom directly */}
@@ -59,8 +85,12 @@ const App = () => {
           <Route exact path="/order-status" element={<OrderStatus />} />
           <Route exact path="/contact-us" element={<ContactUs />} />
           
-          {/* --- ADMIN DASHBOARD (Catch-all) --- */}
-          <Route path="*" element={<DefaultLayout />} />
+          {/* --- ADMIN DASHBOARD (Protected) --- */}
+          <Route path="*" element={
+            <ProtectedRoute>
+              <DefaultLayout />
+            </ProtectedRoute>
+          } />
           
         </Routes>
       </Suspense>
